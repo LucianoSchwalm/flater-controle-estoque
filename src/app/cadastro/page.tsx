@@ -24,20 +24,32 @@ export default function Cadastro() {
                   transition duration-500 focus:outline-none focus:border-black rounded"
                         >
                            <option value="Viscolaycra">Viscolaycra</option>
-                           <option value="Moletim">Moletim</option>
-                           <option value="Moletom">Moletom</option>
+                           <option value="Moletim">Moletinho</option>
+                           <option value="Moletom">Moletom Felpado</option>
+                           <option value="Moletom">Moletom Careca</option>
+                           <option value="Moletom">
+                              Helanca Felpada Produção
+                           </option>
+                           <option value="Moletom">Helanca Felpada Adar</option>
+                           <option value="Moletom">Lanzinha</option>
+                           <option value="Moletom">Soft</option>
+                           <option value="Moletom">Malha Sued Lisa</option>
+                           <option value="Moletom">Malha Sued Estampada</option>
+                           <option value="Moletom">Malha Sued Canelada</option>
+                           <option value="Moletom">Malha Canelada</option>
+                           <option value="Moletom">Malha Térmica</option>
                         </select>
                      </div>
                      <div className="pt-6">
                         <label
-                           htmlFor="tipoTecido"
-                           id="email"
+                           htmlFor="empresa"
+                           id="empresa"
                            className="text-xs text-gray-500"
                         >
-                           Tipo de Tecido
+                           Empresa
                         </label>
                         <input
-                           id="tipoTecido"
+                           id="empresa"
                            name="tipoTecido"
                            className="bg-transparent border-b m-auto block border-gray-500 w-full mb-6
            text-gray-700 pb-1"
@@ -75,8 +87,7 @@ export default function Cadastro() {
                   transition duration-500 focus:outline-none focus:border-black rounded"
                         >
                            <option value="kilograma">KG</option>
-                           <option value="grama">G</option>
-                           <option value="miligrama">mg</option>
+                           <option value="metros">Metros</option>
                         </select>
                      </div>
                      <div className="pt-6">
@@ -96,17 +107,51 @@ export default function Cadastro() {
                            placeholder=""
                         />
                      </div>
+                     <div className="">
+                        <label
+                           htmlFor="numeroRolos"
+                           id="numeroRolos"
+                           className="text-xs text-gray-500"
+                        >
+                           Numero de Rolos
+                        </label>
+                        <input
+                           id="numeroRolos"
+                           name="numeroRolos"
+                           className="bg-transparent border-b m-auto block border-gray-500
+            w-full mb-6 text-grey-700 pb-1"
+                           type="number"
+                           placeholder=""
+                        />
+                     </div>
                      <div>
                         <label
-                           htmlFor="quantidade"
-                           id="quantidade"
+                           htmlFor="precoUnitario"
+                           id="precoUnitario"
+                           className="text-xs text-gray-500"
+                        >
+                           Preço Unitário
+                        </label>
+                        <input
+                           id="precoUnitario"
+                           name="precoUnitario"
+                           className="bg-transparent border-b m-auto block border-gray-500
+            w-full mb-6 text-grey-700 pb-1"
+                           type="number"
+                           placeholder=""
+                        />
+                     </div>
+                     <div>
+                        <label
+                           htmlFor="precoTotal"
+                           id="precoTotal"
                            className="text-xs text-gray-500"
                         >
                            Preço Total
                         </label>
                         <input
-                           id="quantidade"
-                           name="quantidade"
+                           id="precoTotal"
+                           name="precoTotal"
                            className="bg-transparent border-b m-auto block border-gray-500
             w-full mb-6 text-grey-700 pb-1"
                            type="number"
