@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
    return (
-      <main className="flex min-h-screen flex-row justify-center p-24 gap-10">
+      <main className="flex min-h-screen flex-row justify-center p-24 gap-10 bg-white">
          <Link href="/cadastro">
             <div>
                <button
@@ -23,13 +23,13 @@ export default function Home() {
                </button>
             </div>
          </Link>
-         <Link href="registro">
+         <Link href="pecas">
             <div>
                <button
                   type="button"
                   className="rounded-lg px-8 py-2 text-xl border-2 border-indigo-500 text-indigo-500 hover:bg-indigo-500 hover:text-blue-100 duration-300"
                >
-                  REGISTRO DE TECIDO PARA PEÇAS
+                  CORTE DE PEÇAS
                </button>
             </div>
          </Link>
@@ -39,7 +39,7 @@ export default function Home() {
                   type="button"
                   className="rounded-lg px-8 py-2 text-xl border-2 border-indigo-500 text-indigo-500 hover:bg-indigo-500 hover:text-blue-100 duration-300"
                >
-                  SAÍDA DE TECIDO
+                  SAÍDA DE PEÇAS
                </button>
             </div>
          </Link>

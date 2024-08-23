@@ -1,130 +1,214 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Cadastro() {
+   const [inputList, setInputList] = useState([
+      {
+         input: "",
+         input_rank: null,
+      },
+   ]);
+
+   const handleColorAdd = () => {
+      setInputList([
+         ...inputList,
+         {
+            input: "",
+            input_rank: null,
+         },
+      ]);
+   };
+
+   const handleColorRemove = () => {
+      const newList = [...inputList];
+      newList.splice(newList.length - 1, 1);
+      setInputList(newList);
+   };
+
    return (
-      <main>
-         <div className="grid justify-items-center shadow-md flex-shrink md:flex-shrink-0 py-20">
-            <div className="w-3/5 bg-white">
+      <main className="bg-white">
+         <div className="justify-items-left py-5">
+            <div className="bg-white">
                <div className="p-8">
                   <div
                      className="shadow-lg mt-3 pt-3 pb-3 w-full text-white text-center
                   hover:bg-indigo-400 rounded-full cursor-pointer hidden"
                   ></div>
-                  <div className="text-2xl text-black text-center">
+                  <div className="text-2xl text-black text-left pb-10">
                      Cadastre Uma Nota Fiscal
                   </div>
                   <form>
-                     <div>
-                        <label
-                           htmlFor="tecido"
-                           className="text-xs text-gray-500"
-                        >
-                           Tecido
-                        </label>
-                        <select
-                           className="bg-transparent w-full py-1.5 px-3 text-gray-800 border-b border-gray-500
+                     <div className="grid grid-cols-4 gap-10">
+                        <div>
+                           <label
+                              htmlFor="tecido"
+                              className="text-xs text-gray-500"
+                           >
+                              Tecido
+                           </label>
+                           <select
+                              className="bg-transparent w-full py-1.5 px-3 text-gray-800 border-b border-gray-500
+                     transition duration-500 focus:outline-none focus:border-black rounded"
+                           >
+                              <option value="Viscolaycra">Viscolaycra</option>
+                              <option value="Moletim">Moletinho</option>
+                              <option value="Moletom">Moletom Felpado</option>
+                              <option value="Moletom">Moletom Careca</option>
+                              <option value="Moletom">
+                                 Helanca Felpada Produção
+                              </option>
+                              <option value="Moletom">
+                                 Helanca Felpada Adar
+                              </option>
+                              <option value="Moletom">Lanzinha</option>
+                              <option value="Moletom">Soft</option>
+                              <option value="Moletom">Malha Sued Lisa</option>
+                              <option value="Moletom">
+                                 Malha Sued Estampada
+                              </option>
+                              <option value="Moletom">
+                                 Malha Sued Canelada
+                              </option>
+                              <option value="Moletom">Malha Canelada</option>
+                              <option value="Moletom">Malha Térmica</option>
+                           </select>
+                        </div>
+                        <div className="">
+                           <label
+                              htmlFor="empresa"
+                              id="empresa"
+                              className="text-xs text-gray-500"
+                           >
+                              Empresa
+                           </label>
+                           <input
+                              id="empresa"
+                              name="tipoTecido"
+                              className="bg-transparent border-b m-auto block border-gray-500 w-full mb-6
+            text-gray-700 pb-2"
+                              type="text"
+                              placeholder=""
+                           />
+                        </div>
+                        <div className="col-start-3 col-end-5">
+                           <label
+                              htmlFor="descricao"
+                              id="age"
+                              className="text-xs text-gray-500"
+                           >
+                              Descrição
+                           </label>
+                           <input
+                              id="descricao"
+                              name="descricao"
+                              className="bg-transparent border-b m-auto block border-gray-500 w-full mb-6
+            text-gray-700 pb-2"
+                              type="text"
+                              placeholder=""
+                           />
+                        </div>
+                     </div>
+                     {inputList.map((input, index) => (
+                        <div key={index} className="grid grid-cols-4 gap-10">
+                           <div>
+                              <label
+                                 htmlFor="unidadePeso"
+                                 id="unidadePeso"
+                                 className="text-xs text-gray-500"
+                              >
+                                 Cor
+                              </label>
+                              <select
+                                 className="bg-transparent w-full py-1.5 px-3 text-gray-800 border-b border-gray-500
                   transition duration-500 focus:outline-none focus:border-black rounded"
-                        >
-                           <option value="Viscolaycra">Viscolaycra</option>
-                           <option value="Moletim">Moletinho</option>
-                           <option value="Moletom">Moletom Felpado</option>
-                           <option value="Moletom">Moletom Careca</option>
-                           <option value="Moletom">
-                              Helanca Felpada Produção
-                           </option>
-                           <option value="Moletom">Helanca Felpada Adar</option>
-                           <option value="Moletom">Lanzinha</option>
-                           <option value="Moletom">Soft</option>
-                           <option value="Moletom">Malha Sued Lisa</option>
-                           <option value="Moletom">Malha Sued Estampada</option>
-                           <option value="Moletom">Malha Sued Canelada</option>
-                           <option value="Moletom">Malha Canelada</option>
-                           <option value="Moletom">Malha Térmica</option>
-                        </select>
-                     </div>
-                     <div className="pt-6">
-                        <label
-                           htmlFor="empresa"
-                           id="empresa"
-                           className="text-xs text-gray-500"
-                        >
-                           Empresa
-                        </label>
-                        <input
-                           id="empresa"
-                           name="tipoTecido"
-                           className="bg-transparent border-b m-auto block border-gray-500 w-full mb-6
-           text-gray-700 pb-1"
-                           type="text"
-                           placeholder=""
-                        />
-                     </div>
-                     <div>
-                        <label
-                           htmlFor="descricao"
-                           id="age"
-                           className="text-xs text-gray-500"
-                        >
-                           Descrição
-                        </label>
-                        <input
-                           id="descricao"
-                           name="descricao"
-                           className="bg-transparent border-b m-auto block border-gray-500 w-full mb-6
-           text-gray-700 pb-1"
-                           type="text"
-                           placeholder=""
-                        />
-                     </div>
-                     <div>
-                        <label
-                           htmlFor="unidadePeso"
-                           id="unidadePeso"
-                           className="text-xs text-gray-500"
-                        >
-                           Unidade de Peso
-                        </label>
-                        <select
-                           className="bg-transparent w-full py-1.5 px-3 text-gray-800 border-b border-gray-500
+                              >
+                                 <option value="kilograma">Vermelho</option>
+                                 <option value="metros">Azul</option>
+                                 <option value="metros">Preto</option>
+                                 <option value="metros">Branco</option>
+                              </select>
+                           </div>
+                           <div>
+                              <label
+                                 htmlFor="unidadePeso"
+                                 id="unidadePeso"
+                                 className="text-xs text-gray-500"
+                              >
+                                 Unidade de Peso
+                              </label>
+                              <select
+                                 className="bg-transparent w-full py-1.5 px-3 text-gray-800 border-b border-gray-500
                   transition duration-500 focus:outline-none focus:border-black rounded"
-                        >
-                           <option value="kilograma">KG</option>
-                           <option value="metros">Metros</option>
-                        </select>
+                              >
+                                 <option value="kilograma">KG</option>
+                                 <option value="metros">Metros</option>
+                              </select>
+                           </div>
+                           <div>
+                              <label
+                                 htmlFor="quantidade"
+                                 id="quantidade"
+                                 className="text-xs text-gray-500"
+                              >
+                                 Quantidade
+                              </label>
+                              <input
+                                 id="quantidade"
+                                 name="quantidade"
+                                 className="bg-transparent border-b m-auto block border-gray-500
+            w-full mb-6 text-grey-700 pb-2"
+                                 type="number"
+                                 placeholder=""
+                              />
+                           </div>
+                           <div>
+                              <label
+                                 htmlFor="numeroRolos"
+                                 id="numeroRolos"
+                                 className="text-xs text-gray-500"
+                              >
+                                 Numero de Rolos
+                              </label>
+                              <input
+                                 id="numeroRolos"
+                                 name="numeroRolos"
+                                 className="bg-transparent border-b m-auto border-gray-500
+            w-full mb-6 text-grey-700 pb-2"
+                                 type="number"
+                                 placeholder=""
+                              />
+                           </div>
+                        </div>
+                     ))}
+                     <div className="grid grid-cols-4 gap-10">
+                        <div className="col-start-1">
+                           <button
+                              id="colorBtnRemove"
+                              name="colorBtnRemove"
+                              type="button"
+                              className="text-xs text-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900 disabled:border-gray-500 disabled:text-gray-500 disabled:hover:bg-gray-500"
+                              onClick={handleColorRemove}
+                              disabled={inputList?.length === 1}
+                           >
+                              + Remova uma cor
+                           </button>
+                        </div>
+                        <div className="col-start-4">
+                           <button
+                              id="colorBtnAdd"
+                              name="colorBtnAdd"
+                              type="button"
+                              className="text-xs text-blue-500 text-center text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 
+                              focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:border-blue-500
+                              dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+                              onClick={handleColorAdd}
+                           >
+                              + Adicione uma cor
+                           </button>
+                        </div>
                      </div>
-                     <div className="pt-6">
-                        <label
-                           htmlFor="quantidade"
-                           id="quantidade"
-                           className="text-xs text-gray-500"
-                        >
-                           Quantidade
-                        </label>
-                        <input
-                           id="quantidade"
-                           name="quantidade"
-                           className="bg-transparent border-b m-auto block border-gray-500
-            w-full mb-6 text-grey-700 pb-1"
-                           type="number"
-                           placeholder=""
-                        />
-                     </div>
-                     <div className="">
-                        <label
-                           htmlFor="numeroRolos"
-                           id="numeroRolos"
-                           className="text-xs text-gray-500"
-                        >
-                           Numero de Rolos
-                        </label>
-                        <input
-                           id="numeroRolos"
-                           name="numeroRolos"
-                           className="bg-transparent border-b m-auto block border-gray-500
-            w-full mb-6 text-grey-700 pb-1"
-                           type="number"
-                           placeholder=""
-                        />
-                     </div>
-                     <div>
+                     {/* <div>
                         <label
                            htmlFor="precoUnitario"
                            id="precoUnitario"
@@ -140,8 +224,8 @@ export default function Cadastro() {
                            type="number"
                            placeholder=""
                         />
-                     </div>
-                     <div>
+                     </div> */}
+                     {/* <div>
                         <label
                            htmlFor="precoTotal"
                            id="precoTotal"
@@ -157,13 +241,15 @@ export default function Cadastro() {
                            type="number"
                            placeholder=""
                         />
+                     </div> */}
+                     <div className="w-full mx-auto flex justify-center items-center">
+                        <input
+                           className="shadow-lg mt-3 pt-3 pb-3 w-1/4 text-white bg-indigo-500
+                  hover:bg-indigo-400 rounded-full cursor-pointer"
+                           type="submit"
+                           value="Clique para cadastrar"
+                        />
                      </div>
-                     <input
-                        className="shadow-lg mt-3 pt-3 pb-3 w-full text-white bg-indigo-500
-                  hover:bg-indigo-400 rounded-full cursor-pointer "
-                        type="submit"
-                        value="Clique para cadastrar"
-                     />
                   </form>
                   {/* <div className="text-center mt-4">
                      <p className="text-sm text-gray-600">
