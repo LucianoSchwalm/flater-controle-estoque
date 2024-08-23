@@ -74,7 +74,7 @@ export default function Cadastro() {
                               <option value="Moletom">Malha Térmica</option>
                            </select>
                         </div>
-                        <div className="">
+                        <div>
                            <label
                               htmlFor="empresa"
                               id="empresa"
@@ -113,8 +113,8 @@ export default function Cadastro() {
                         <div key={index} className="grid grid-cols-4 gap-10">
                            <div>
                               <label
-                                 htmlFor="unidadePeso"
-                                 id="unidadePeso"
+                                 htmlFor="cor"
+                                 id="cor"
                                  className="text-xs text-gray-500"
                               >
                                  Cor
@@ -122,11 +122,13 @@ export default function Cadastro() {
                               <select
                                  className="bg-transparent w-full py-1.5 px-3 text-gray-800 border-b border-gray-500
                                     transition duration-500 focus:outline-none focus:border-black rounded"
+                                 id="cor"
+                                 name="cor"
                               >
-                                 <option value="kilograma">Vermelho</option>
-                                 <option value="metros">Azul</option>
-                                 <option value="metros">Preto</option>
-                                 <option value="metros">Branco</option>
+                                 <option value="vermelho">Vermelho</option>
+                                 <option value="azul">Azul</option>
+                                 <option value="preto">Preto</option>
+                                 <option value="branco">Branco</option>
                               </select>
                            </div>
                            <div>
@@ -191,7 +193,7 @@ export default function Cadastro() {
                               onClick={handleColorRemove}
                               disabled={inputList?.length === 1}
                            >
-                              + Remova uma cor
+                              - Remova uma cor
                            </button>
                         </div>
                         <div className="col-start-4">
