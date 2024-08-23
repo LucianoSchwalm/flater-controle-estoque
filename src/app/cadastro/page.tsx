@@ -27,18 +27,18 @@ export default function Cadastro() {
    };
 
    return (
-      <main className="bg-white">
-         <div className="justify-items-left py-5">
-            <div className="bg-white">
-               <div className="p-8">
-                  <div
-                     className="shadow-lg mt-3 pt-3 pb-3 w-full text-white text-center
+      <main className="bg-white min-h-screen">
+         <div className="justify-items-left py-5 min-h-screen">
+            <div className="p-8">
+               <div
+                  className="shadow-lg mt-3 pt-3 pb-3 w-full text-white text-center
                   hover:bg-indigo-400 rounded-full cursor-pointer hidden"
-                  ></div>
-                  <div className="text-2xl text-black text-left pb-10">
-                     Cadastre Uma Nota Fiscal
-                  </div>
-                  <form>
+               ></div>
+               <div className="text-2xl text-black text-left pb-10">
+                  Cadastre Uma Nota Fiscal
+               </div>
+               <form>
+                  <div className="min-h-72">
                      <div className="grid grid-cols-4 gap-10">
                         <div>
                            <label
@@ -49,7 +49,7 @@ export default function Cadastro() {
                            </label>
                            <select
                               className="bg-transparent w-full py-1.5 px-3 text-gray-800 border-b border-gray-500
-                     transition duration-500 focus:outline-none focus:border-black rounded"
+                                 transition duration-500 focus:outline-none focus:border-black rounded"
                            >
                               <option value="Viscolaycra">Viscolaycra</option>
                               <option value="Moletim">Moletinho</option>
@@ -86,7 +86,7 @@ export default function Cadastro() {
                               id="empresa"
                               name="tipoTecido"
                               className="bg-transparent border-b m-auto block border-gray-500 w-full mb-6
-            text-gray-700 pb-2"
+                                 text-gray-700 pb-2"
                               type="text"
                               placeholder=""
                            />
@@ -103,7 +103,7 @@ export default function Cadastro() {
                               id="descricao"
                               name="descricao"
                               className="bg-transparent border-b m-auto block border-gray-500 w-full mb-6
-            text-gray-700 pb-2"
+                                 text-gray-700 pb-2"
                               type="text"
                               placeholder=""
                            />
@@ -121,7 +121,7 @@ export default function Cadastro() {
                               </label>
                               <select
                                  className="bg-transparent w-full py-1.5 px-3 text-gray-800 border-b border-gray-500
-                  transition duration-500 focus:outline-none focus:border-black rounded"
+                                    transition duration-500 focus:outline-none focus:border-black rounded"
                               >
                                  <option value="kilograma">Vermelho</option>
                                  <option value="metros">Azul</option>
@@ -139,7 +139,7 @@ export default function Cadastro() {
                               </label>
                               <select
                                  className="bg-transparent w-full py-1.5 px-3 text-gray-800 border-b border-gray-500
-                  transition duration-500 focus:outline-none focus:border-black rounded"
+                     transition duration-500 focus:outline-none focus:border-black rounded"
                               >
                                  <option value="kilograma">KG</option>
                                  <option value="metros">Metros</option>
@@ -157,7 +157,7 @@ export default function Cadastro() {
                                  id="quantidade"
                                  name="quantidade"
                                  className="bg-transparent border-b m-auto block border-gray-500
-            w-full mb-6 text-grey-700 pb-2"
+                                    w-full mb-6 text-grey-700 pb-2"
                                  type="number"
                                  placeholder=""
                               />
@@ -174,7 +174,7 @@ export default function Cadastro() {
                                  id="numeroRolos"
                                  name="numeroRolos"
                                  className="bg-transparent border-b m-auto border-gray-500
-            w-full mb-6 text-grey-700 pb-2"
+                                    w-full mb-6 text-grey-700 pb-2"
                                  type="number"
                                  placeholder=""
                               />
@@ -200,15 +200,16 @@ export default function Cadastro() {
                               name="colorBtnAdd"
                               type="button"
                               className="text-xs text-blue-500 text-center text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 
-                              focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:border-blue-500
-                              dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+                                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:border-blue-500
+                                 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
                               onClick={handleColorAdd}
                            >
                               + Adicione uma cor
                            </button>
                         </div>
                      </div>
-                     {/* <div>
+                  </div>
+                  {/* <div>
                         <label
                            htmlFor="precoUnitario"
                            id="precoUnitario"
@@ -225,7 +226,7 @@ export default function Cadastro() {
                            placeholder=""
                         />
                      </div> */}
-                     {/* <div>
+                  {/* <div>
                         <label
                            htmlFor="precoTotal"
                            id="precoTotal"
@@ -242,16 +243,16 @@ export default function Cadastro() {
                            placeholder=""
                         />
                      </div> */}
-                     <div className="w-full mx-auto flex justify-center items-center">
-                        <input
-                           className="shadow-lg mt-3 pt-3 pb-3 w-1/4 text-white bg-indigo-500
+                  <div className="w-full mx-auto flex justify-center">
+                     <input
+                        className="shadow-lg mt-3 pt-3 pb-3 w-1/4 text-white bg-indigo-500
                   hover:bg-indigo-400 rounded-full cursor-pointer"
-                           type="submit"
-                           value="Clique para cadastrar"
-                        />
-                     </div>
-                  </form>
-                  {/* <div className="text-center mt-4">
+                        type="submit"
+                        value="Clique para cadastrar"
+                     />
+                  </div>
+               </form>
+               {/* <div className="text-center mt-4">
                      <p className="text-sm text-gray-600">
                         Already have an account?
                         <a
@@ -262,7 +263,6 @@ export default function Cadastro() {
                         </a>
                      </p>
                   </div> */}
-               </div>
             </div>
          </div>
       </main>
