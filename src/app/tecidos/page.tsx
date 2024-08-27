@@ -6,7 +6,7 @@ export default function Tecidos() {
    const toggleSelect = () => {};
 
    return (
-      <div id="app" className="bg-gray-300">
+      <div id="app" className="bg-gray-300 min-h-screen">
          <div className="container mx-auto">
             <div className="py-20">
                <div className="flex items-center px-5 py-2">
