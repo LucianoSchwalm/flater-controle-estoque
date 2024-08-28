@@ -27,7 +27,7 @@ export default function Cadastro() {
    };
 
    return (
-      <main className="bg-white min-h-screen">
+      <main className="bg-gray-300 min-h-screen">
          <div className="justify-items-left py-5 min-h-screen">
             <div className="p-8">
                <div
@@ -153,7 +153,7 @@ export default function Cadastro() {
                                  id="quantidade"
                                  className="text-xs text-gray-500"
                               >
-                                 Quantidade
+                                 Quantidade de Peso
                               </label>
                               <input
                                  id="quantidade"
