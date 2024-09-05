@@ -34,7 +34,7 @@ export default function Tecidos() {
                      </span>
                   </span>
                </div>
-               <Link href={"/tecidos/12"}>
+               <Link href={"/tecido/estoque/12"}>
                   <div
                      key="key"
                      className="hover:bg-gray-200 cursor-pointer bg-white shadow flex p-5 items-center mb-5 rounded-lg"
