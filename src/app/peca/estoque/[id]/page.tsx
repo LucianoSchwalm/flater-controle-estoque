@@ -7,13 +7,11 @@ export default function Tecidos() {
       <div id="app" className="bg-gray-300 min-h-screen">
          <div className="container mx-auto">
             <div className="flex flex-row gap-x-24">
-               <div className="py-10 text-xl uppercase text-gray-600 font-bold">
-                  Viscolaycra
+               <div className="py-10 w-full text-xl uppercase text-gray-600 font-bold">
+                  Calça de Moletom
                </div>
                <div className="py-10 text-base text-gray-600 font-bold w-full text-right">
-                  <label htmlFor="cor" className="px-5">
-                     Cor:
-                  </label>
+                  <label htmlFor="cor">Cor:</label>
                   <select
                      className="bg-transparent py-1.5 px-3 text-gray-800 border-b border-gray-500
                      transition duration-500 focus:outline-none focus:border-black rounded"
@@ -26,6 +24,21 @@ export default function Tecidos() {
                      <option value="preto">Preto</option>
                      <option value="vermelho-sangue">Vermelho sangue</option>
                      <option value="vermelho">Vermelho</option>
+                  </select>
+               </div>
+               <div className="py-10 text-base text-gray-600 font-bold w-full text-right">
+                  <label htmlFor="cor" className="px-5">
+                     Tipo da Peça:
+                  </label>
+                  <select
+                     className="bg-transparent py-1.5 px-3 text-gray-800 border-b border-gray-500
+                     transition duration-500 focus:outline-none focus:border-black rounded"
+                     id="clothType"
+                     name="clothType"
+                  >
+                     <option value="none">Nenhuma</option>
+                     <option value="listrado">Listrada</option>
+                     <option value="lisa">Lisa</option>
                   </select>
                </div>
                <div>

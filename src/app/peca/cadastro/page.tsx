@@ -297,7 +297,7 @@ export default function CadastroPeca() {
                   </button>
                </div>
             </div>
-            <div className="w-full mx-auto flex justify-center">
+            <div className="w-full mx-auto flex justify-center pb-10">
                <input
                   className="shadow-lg mt-3 pt-3 pb-3 w-1/4 text-white bg-indigo-500
                   hover:bg-indigo-400 rounded-full cursor-pointer"
