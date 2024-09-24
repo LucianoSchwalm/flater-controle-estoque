@@ -2,12 +2,16 @@
 
 import { useState } from "react";
 
+export type InputType = {
+   index: number;
+   isAdult: boolean;
+};
+
 export default function CadastroPeca() {
-   const [gridIsAdult, setGridIsAdult] = useState(true);
-   const [inputList, setInputList] = useState([
+   const [inputList, setInputList] = useState<InputType[]>([
       {
-         input: "",
-         input_rank: null,
+         index: 0,
+         isAdult: true,
       },
    ]);
 
@@ -15,8 +19,8 @@ export default function CadastroPeca() {
       setInputList([
          ...inputList,
          {
-            input: "",
-            input_rank: null,
+            index: inputList.length,
+            isAdult: true,
          },
       ]);
    };
@@ -26,6 +30,14 @@ export default function CadastroPeca() {
       newList.splice(newList.length - 1, 1);
       setInputList(newList);
    };
+
+   const handleGridIsAdult = (index: number) => {
+      const newList = [...inputList];
+      const selectedInput = newList.find((input) => input.index === index)!;
+      selectedInput.isAdult = !selectedInput.isAdult;
+      setInputList(newList);
+   };
+
    return (
       <main className="min-h-screen bg-gray-300">
          <div className="text-2xl text-gray-600 px-10 pt-10">
@@ -78,59 +90,6 @@ export default function CadastroPeca() {
                      />
                   </div>
                </div>
-               <div className="flex gap-24 pl-10 lg:pl-0">
-                  <div>
-                     <label
-                        htmlFor="grid"
-                        id="grid"
-                        className="text-xs text-gray-500"
-                     >
-                        Grade
-                     </label>
-                     <input
-                        id="grid"
-                        name="grid"
-                        className="bg-transparent border-b m-auto block border-gray-500 w-full mb-6
-                                   text-gray-700 pb-2"
-                        type="text"
-                        placeholder="1P 2M 2G 1GG"
-                     />
-                  </div>
-                  <div>
-                     <label
-                        htmlFor="weight"
-                        id="weight"
-                        className="text-xs text-gray-500"
-                     >
-                        Peso
-                     </label>
-                     <input
-                        id="weight"
-                        name="weight"
-                        className="bg-transparent border-b m-auto block border-gray-500 w-full mb-6
-                                   text-gray-700 pb-2"
-                        type="text"
-                        placeholder="2KG"
-                     />
-                  </div>
-                  <div className="pr-10">
-                     <label
-                        htmlFor="meter"
-                        id="meter"
-                        className="text-xs text-gray-500"
-                     >
-                        Metro
-                     </label>
-                     <input
-                        id="meter"
-                        name="meter"
-                        className="bg-transparent border-b m-auto block border-gray-500 w-full mb-6
-                                   text-gray-700 pb-2"
-                        type="text"
-                        placeholder="22M"
-                     />
-                  </div>
-               </div>
             </div>
             <div className="text-gray-600 px-10 py-10">
                INSIRA AS CORES E GRADES REALIZADAS
@@ -159,7 +118,7 @@ export default function CadastroPeca() {
                   </div>
                   <div className="col-start-2 col-end-4 text-xl uppercase text-gray-500 flex flex-row justify-center gap-10">
                      <div className="flex flex-col">
-                        <label htmlFor="p">{gridIsAdult ? "p" : "2"}</label>
+                        <label htmlFor="p">{input.isAdult ? "p" : "2"}</label>
                         <input
                            className="max-w-8"
                            type="number"
@@ -168,7 +127,7 @@ export default function CadastroPeca() {
                         />
                      </div>
                      <div className="flex flex-col">
-                        <label htmlFor="m">{gridIsAdult ? "m" : "4"}</label>
+                        <label htmlFor="m">{input.isAdult ? "m" : "4"}</label>
                         <input
                            className="max-w-8"
                            type="number"
@@ -177,7 +136,7 @@ export default function CadastroPeca() {
                         />
                      </div>
                      <div className="flex flex-col">
-                        <label htmlFor="g">{gridIsAdult ? "g" : "6"}</label>
+                        <label htmlFor="g">{input.isAdult ? "g" : "6"}</label>
                         <input
                            className="max-w-8"
                            type="number"
@@ -186,7 +145,7 @@ export default function CadastroPeca() {
                         />
                      </div>
                      <div className="flex flex-col">
-                        <label htmlFor="gg">{gridIsAdult ? "gg" : "8"}</label>
+                        <label htmlFor="gg">{input.isAdult ? "gg" : "8"}</label>
                         <input
                            className="max-w-8"
                            type="number"
@@ -196,7 +155,7 @@ export default function CadastroPeca() {
                      </div>
                      <div className="flex flex-col">
                         <label htmlFor="xgg">
-                           {gridIsAdult ? "xgg" : "10"}
+                           {input.isAdult ? "xgg" : "10"}
                         </label>
                         <input
                            className="max-w-8"
@@ -206,7 +165,9 @@ export default function CadastroPeca() {
                         />
                      </div>
                      <div className="flex flex-col">
-                        <label htmlFor="g1">{gridIsAdult ? "g1" : "12"}</label>
+                        <label htmlFor="g1">
+                           {input.isAdult ? "g1" : "12"}
+                        </label>
                         <input
                            className="max-w-8"
                            type="number"
@@ -215,7 +176,9 @@ export default function CadastroPeca() {
                         />
                      </div>
                      <div className="flex flex-col">
-                        <label htmlFor="g2">{gridIsAdult ? "g2" : "14"}</label>
+                        <label htmlFor="g2">
+                           {input.isAdult ? "g2" : "14"}
+                        </label>
                         <input
                            className="max-w-8"
                            type="number"
@@ -223,7 +186,7 @@ export default function CadastroPeca() {
                            id="g2"
                         />
                      </div>
-                     {!gridIsAdult && (
+                     {!input.isAdult && (
                         <div className="flex flex-col">
                            <label htmlFor="16">16</label>
                            <input
@@ -236,34 +199,43 @@ export default function CadastroPeca() {
                      )}
                   </div>
                   <div className="text-gray-500 flex flex-col gap-2">
-                     <label htmlFor="gridType" className="text-xl">
+                     <label
+                        htmlFor={`gridType${input.index}`}
+                        className="text-xl"
+                     >
                         Tipo de Grade
                      </label>
                      <div>
                         <input
                            type="radio"
-                           name="gridType"
-                           id="gridType1"
+                           name={`gridType${input.index}`}
+                           id={`radioType0${input.index}`}
                            className="pt-1"
-                           onChange={() => setGridIsAdult(true)}
+                           onChange={() => handleGridIsAdult(input.index)}
                            defaultChecked
-                           checked={gridIsAdult}
+                           checked={input.isAdult}
                            value={1}
                         />
-                        <label htmlFor="gridType1" className="pl-2">
+                        <label
+                           htmlFor={`radioType0${input.index}`}
+                           className="pl-2"
+                        >
                            Adulto
                         </label>
                      </div>
                      <div>
                         <input
                            type="radio"
-                           name="gridType"
-                           id="gridType2"
-                           onChange={() => setGridIsAdult(false)}
-                           checked={!gridIsAdult}
+                           name={`gridType${input.index}`}
+                           id={`radioType1${input.index}`}
+                           onChange={() => handleGridIsAdult(input.index)}
+                           checked={!input.isAdult}
                            value={2}
                         />
-                        <label htmlFor="gridType1" className="pl-2">
+                        <label
+                           htmlFor={`radioType1${input.index}`}
+                           className="pl-2"
+                        >
                            Infantil
                         </label>
                      </div>
