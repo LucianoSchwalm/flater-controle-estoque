@@ -1,13 +1,13 @@
 "use client";
 
+import { InputType } from "@/dto/inputType";
 import { useState } from "react";
 
 export default function CadastroPeca() {
-   const [gridIsAdult, setGridIsAdult] = useState(true);
-   const [inputList, setInputList] = useState([
+   const [inputList, setInputList] = useState<InputType[]>([
       {
-         input: "",
-         input_rank: null,
+         index: 0,
+         isAdult: true,
       },
    ]);
 
@@ -15,8 +15,8 @@ export default function CadastroPeca() {
       setInputList([
          ...inputList,
          {
-            input: "",
-            input_rank: null,
+            index: inputList.length,
+            isAdult: true,
          },
       ]);
    };
@@ -24,6 +24,13 @@ export default function CadastroPeca() {
    const handleColorRemove = () => {
       const newList = [...inputList];
       newList.splice(newList.length - 1, 1);
+      setInputList(newList);
+   };
+
+   const handleGridIsAdult = (index: number) => {
+      const newList = [...inputList];
+      const selectedInput = newList.find((input) => input.index === index)!;
+      selectedInput.isAdult = !selectedInput.isAdult;
       setInputList(newList);
    };
 
@@ -148,7 +155,7 @@ export default function CadastroPeca() {
                      </label>
                      <select
                         className="bg-transparent w-full py-1.5 text-gray-800 border-b border-gray-500
-                                   transition duration-500 focus:outline-none focus:border-black rounded"
+                                     transition duration-500 focus:outline-none focus:border-black rounded"
                         id="cor"
                         name="cor"
                      >
@@ -160,7 +167,7 @@ export default function CadastroPeca() {
                   </div>
                   <div className="col-start-2 col-end-4 text-xl uppercase text-gray-500 flex flex-row justify-center gap-10">
                      <div className="flex flex-col">
-                        <label htmlFor="p">{gridIsAdult ? "p" : "2"}</label>
+                        <label htmlFor="p">{input.isAdult ? "p" : "2"}</label>
                         <input
                            className="max-w-8"
                            type="number"
@@ -169,7 +176,7 @@ export default function CadastroPeca() {
                         />
                      </div>
                      <div className="flex flex-col">
-                        <label htmlFor="m">{gridIsAdult ? "m" : "4"}</label>
+                        <label htmlFor="m">{input.isAdult ? "m" : "4"}</label>
                         <input
                            className="max-w-8"
                            type="number"
@@ -178,7 +185,7 @@ export default function CadastroPeca() {
                         />
                      </div>
                      <div className="flex flex-col">
-                        <label htmlFor="g">{gridIsAdult ? "g" : "6"}</label>
+                        <label htmlFor="g">{input.isAdult ? "g" : "6"}</label>
                         <input
                            className="max-w-8"
                            type="number"
@@ -187,7 +194,7 @@ export default function CadastroPeca() {
                         />
                      </div>
                      <div className="flex flex-col">
-                        <label htmlFor="gg">{gridIsAdult ? "gg" : "8"}</label>
+                        <label htmlFor="gg">{input.isAdult ? "gg" : "8"}</label>
                         <input
                            className="max-w-8"
                            type="number"
@@ -197,7 +204,7 @@ export default function CadastroPeca() {
                      </div>
                      <div className="flex flex-col">
                         <label htmlFor="xgg">
-                           {gridIsAdult ? "xgg" : "10"}
+                           {input.isAdult ? "xgg" : "10"}
                         </label>
                         <input
                            className="max-w-8"
@@ -207,7 +214,9 @@ export default function CadastroPeca() {
                         />
                      </div>
                      <div className="flex flex-col">
-                        <label htmlFor="g1">{gridIsAdult ? "g1" : "12"}</label>
+                        <label htmlFor="g1">
+                           {input.isAdult ? "g1" : "12"}
+                        </label>
                         <input
                            className="max-w-8"
                            type="number"
@@ -216,7 +225,9 @@ export default function CadastroPeca() {
                         />
                      </div>
                      <div className="flex flex-col">
-                        <label htmlFor="g2">{gridIsAdult ? "g2" : "14"}</label>
+                        <label htmlFor="g2">
+                           {input.isAdult ? "g2" : "14"}
+                        </label>
                         <input
                            className="max-w-8"
                            type="number"
@@ -224,7 +235,7 @@ export default function CadastroPeca() {
                            id="g2"
                         />
                      </div>
-                     {!gridIsAdult && (
+                     {!input.isAdult && (
                         <div className="flex flex-col">
                            <label htmlFor="16">16</label>
                            <input
@@ -237,33 +248,43 @@ export default function CadastroPeca() {
                      )}
                   </div>
                   <div className="text-gray-500 flex flex-col gap-2">
-                     <label htmlFor="gridType" className="text-xl">
+                     <label
+                        htmlFor={`gridType${input.index}`}
+                        className="text-xl"
+                     >
                         Tipo de Grade
                      </label>
                      <div>
                         <input
                            type="radio"
-                           name="gridType"
-                           id="gridType1"
+                           name={`gridType${input.index}`}
+                           id={`radioType0${input.index}`}
                            className="pt-1"
-                           onChange={() => setGridIsAdult(true)}
-                           checked={gridIsAdult}
+                           onChange={() => handleGridIsAdult(input.index)}
+                           defaultChecked
+                           checked={input.isAdult}
                            value={1}
                         />
-                        <label htmlFor="gridType1" className="pl-2">
+                        <label
+                           htmlFor={`radioType0${input.index}`}
+                           className="pl-2"
+                        >
                            Adulto
                         </label>
                      </div>
                      <div>
                         <input
                            type="radio"
-                           name="gridType"
-                           id="gridType2"
-                           onChange={() => setGridIsAdult(false)}
-                           checked={!gridIsAdult}
+                           name={`gridType${input.index}`}
+                           id={`radioType1${input.index}`}
+                           onChange={() => handleGridIsAdult(input.index)}
+                           checked={!input.isAdult}
                            value={2}
                         />
-                        <label htmlFor="gridType1" className="pl-2">
+                        <label
+                           htmlFor={`radioType1${input.index}`}
+                           className="pl-2"
+                        >
                            Infantil
                         </label>
                      </div>

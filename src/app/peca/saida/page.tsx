@@ -1,11 +1,7 @@
 "use client";
 
+import { InputType } from "@/dto/inputType";
 import { useState } from "react";
-
-export type InputType = {
-   index: number;
-   isAdult: boolean;
-};
 
 export default function CadastroPeca() {
    const [inputList, setInputList] = useState<InputType[]>([
