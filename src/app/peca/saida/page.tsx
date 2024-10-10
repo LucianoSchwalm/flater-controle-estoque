@@ -85,6 +85,22 @@ export default function CadastroPeca() {
                                    transition duration-500 focus:outline-none focus:border-black rounded"
                      />
                   </div>
+                  <div>
+                     <label htmlFor="type" className="text-xs text-gray-500">
+                        Cliente
+                     </label>
+                     <select
+                        className="bg-transparent w-full py-1.5 text-gray-800 border-b border-gray-500
+                                   transition duration-500 focus:outline-none focus:border-black rounded"
+                        name="client"
+                        id="client"
+                     >
+                        <option value="Viscolaycra">Outros</option>
+                        <option value="Moletim">Ecommerce</option>
+                        <option value="Moletim">Loja</option>
+                        <option value="Moletim">Cliente Fernando</option>
+                     </select>
+                  </div>
                </div>
             </div>
             <div className="text-gray-600 px-10 py-10">
