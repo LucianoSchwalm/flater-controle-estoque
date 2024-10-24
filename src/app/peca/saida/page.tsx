@@ -11,7 +11,7 @@ export default function CadastroPeca() {
       },
    ]);
 
-   const handleColorAdd = () => {
+   const handleClothingAdd = () => {
       setInputList([
          ...inputList,
          {
@@ -21,7 +21,7 @@ export default function CadastroPeca() {
       ]);
    };
 
-   const handleColorRemove = () => {
+   const handleClothingRemove = () => {
       const newList = [...inputList];
       newList.splice(newList.length - 1, 1);
       setInputList(newList);
@@ -39,38 +39,26 @@ export default function CadastroPeca() {
          <div className="text-2xl text-gray-600 px-10 pt-10">
             SAÍDA DE PEÇAS
          </div>
-         <div className="text-gray-600 px-10 py-10">
-            INSIRA A PEÇA A SER RETIRADA DO ESTOQUE
-         </div>
-         <form action="">
+         <form action="" className="pl-10 pt-10">
             <div className="flex flex-col lg:flex-row justify-between pb-10 ">
                <div className="flex gap-24">
-                  <div className="pl-10">
-                     <label htmlFor="peca" className="text-xs text-gray-500">
-                        Peça
-                     </label>
-                     <select
-                        className="bg-transparent w-full py-1.5 text-gray-800 border-b border-gray-500
-                                   transition duration-500 focus:outline-none focus:border-black rounded"
-                        name="peca"
-                        id="peca"
-                     >
-                        <option value="Viscolaycra">Calça moletom</option>
-                        <option value="Moletim">Blusa Gola V</option>
-                     </select>
-                  </div>
                   <div>
-                     <label htmlFor="type" className="text-xs text-gray-500">
-                        Tipo
+                     <label
+                        htmlFor="weight"
+                        id="weight"
+                        className="text-xs text-gray-500"
+                     >
+                        Cliente
                      </label>
                      <select
                         className="bg-transparent w-full py-1.5 text-gray-800 border-b border-gray-500
-                                   transition duration-500 focus:outline-none focus:border-black rounded"
-                        name="type"
-                        id="type"
+                                     transition duration-500 focus:outline-none focus:border-black rounded"
+                        id="client"
+                        name="peça"
                      >
-                        <option value="Viscolaycra">Listrado</option>
-                        <option value="Moletim">Lisa</option>
+                        <option value="fernando">Fernando</option>
+                        <option value="loja">Loja</option>
+                        <option value="ecommerce">E-commerce</option>
                      </select>
                   </div>
                   <div>
@@ -82,50 +70,34 @@ export default function CadastroPeca() {
                         name="date"
                         id="date"
                         className="bg-transparent w-full py-1.5 text-gray-800 border-b border-gray-500
-                                   transition duration-500 focus:outline-none focus:border-black rounded"
+                                 transition duration-500 focus:outline-none focus:border-black rounded"
                      />
-                  </div>
-                  <div>
-                     <label htmlFor="type" className="text-xs text-gray-500">
-                        Cliente
-                     </label>
-                     <select
-                        className="bg-transparent w-full py-1.5 text-gray-800 border-b border-gray-500
-                                   transition duration-500 focus:outline-none focus:border-black rounded"
-                        name="client"
-                        id="client"
-                     >
-                        <option value="Viscolaycra">Outros</option>
-                        <option value="Moletim">Ecommerce</option>
-                        <option value="Moletim">Loja</option>
-                        <option value="Moletim">Cliente Fernando</option>
-                     </select>
                   </div>
                </div>
             </div>
-            <div className="text-gray-600 px-10 py-10">
-               INSIRA AS CORES E GRADES REALIZADAS
+            <div className="text-gray-600 py-10">
+               INSIRA AS PEÇAS E GRADES A RETIRAR
             </div>
             {inputList.map((input, index) => (
                <div key={index} className="grid grid-cols-4 pb-10">
-                  <div className="pl-10 min-w-10 lg:min-w-80">
+                  <div className="min-w-10 lg:min-w-80">
                      <label
-                        htmlFor="cor"
-                        id="cor"
+                        htmlFor="peça"
+                        id="peça"
                         className="text-xs text-gray-500"
                      >
-                        Cor
+                        PEÇA
                      </label>
                      <select
                         className="bg-transparent w-full py-1.5 text-gray-800 border-b border-gray-500
                                      transition duration-500 focus:outline-none focus:border-black rounded"
-                        id="cor"
-                        name="cor"
+                        id="peça"
+                        name="peça"
                      >
-                        <option value="vermelho">Vermelho</option>
-                        <option value="azul">Azul</option>
-                        <option value="preto">Preto</option>
-                        <option value="branco">Branco</option>
+                        <option value="calca-moletom">Calça Moletom</option>
+                        <option value="blusa-gola-v">Blusa Gola V</option>
+                        <option value="blusa">Blusa</option>
+                        <option value="calca-helanca">Calça Helanca</option>
                      </select>
                   </div>
                   <div className="col-start-2 col-end-4 text-xl uppercase text-gray-500 flex flex-row justify-center gap-10">
@@ -254,17 +226,17 @@ export default function CadastroPeca() {
                   </div>
                </div>
             ))}
-            <div className="flex flex-row justify-between pt-10 gap-24 px-10">
+            <div className="flex flex-row justify-between pt-10 gap-24">
                <div className="pr-0 lg:pr-20 pt-3">
                   <button
                      id="colorBtnRemove"
                      name="colorBtnRemove"
                      type="button"
                      className="text-xs text-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900 disabled:border-gray-500 disabled:text-gray-500 disabled:hover:bg-gray-500"
-                     onClick={handleColorRemove}
+                     onClick={handleClothingRemove}
                      disabled={inputList?.length === 1}
                   >
-                     - Remova uma cor
+                     - Remova uma Peça
                   </button>
                </div>
                <div className="pt-3">
@@ -273,20 +245,20 @@ export default function CadastroPeca() {
                      name="colorBtnAdd"
                      type="button"
                      className="text-xs text-center text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 
-                                   focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:border-blue-500
-                                   dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
-                     onClick={handleColorAdd}
+                                 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:border-blue-500
+                                 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+                     onClick={handleClothingAdd}
                   >
-                     + Adicione uma Nova Cor
+                     + Adicione uma Nova Peça
                   </button>
                </div>
             </div>
-            <div className="w-full mx-auto flex justify-center">
+            <div className="w-full mx-auto flex justify-center pb-10">
                <input
                   className="shadow-lg mt-3 pt-3 pb-3 w-1/4 text-white bg-indigo-500
-                    hover:bg-indigo-400 rounded-full cursor-pointer"
+                  hover:bg-indigo-400 rounded-full cursor-pointer"
                   type="submit"
-                  value="Clique para dar saída da peça"
+                  value="Clique para cadastrar peça"
                />
             </div>
          </form>
